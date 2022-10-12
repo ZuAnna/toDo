@@ -1,0 +1,14 @@
+{
+   "name": "Todo",
+   "description": "Лист с задачами",
+   "icons": [
+     {
+       "src": "img/fav/android-chrome-96x96.png",
+       "type": "image/png",
+       "sizes": "96х96"
+     }
+   ],
+   "theme_color":"#ffffff",
+   "background_color":"#5bbad5",
+   "display":"standalone"
+ }

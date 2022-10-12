@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- fav -->
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="img/fav/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="img/fav/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="img/fav/favicon-16x16.png"
+    />
+    <link rel="manifest" href="site.webmanifest" />
+
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#603cba" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="manifest" href="site.webmanifest" />
+    <!-- fav end-->
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Noto+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Fonts end-->
+
+    <!-- Incons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <!-- Icons end -->
+
+    <!-- styleMy -->
+    <link rel="stylesheet" href="styles/null.css" />
+    <link rel="stylesheet" href="styles/main.css" />
+    <!-- styleMy end-->
+
+    <title>To Do List</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="outer-two">
+        <header class="header">
+          <div class="container">
+            <div class="header__top">
+              <h1 class="header-one">To do list</h1>
+              <div class="button-create" tabindex="1">+</div>
+            </div>
+            <div class="header__down">
+              <div class="header__search">
+                <span class="material-symbols-outlined search-ico">
+                  search</span
+                >
+                <input
+                  type="text"
+                  class="search"
+                  placeholder="Поиск имени, статуса или даты"
+                  tabindex="2"
+                />
+              </div>
+              <div class="header__sort">
+                <div class="header__sort-text">Сортировать по:</div>
+                <select
+                  name="dataSort"
+                  id="dataSort"
+                  class="select"
+                  tabindex="3"
+                >
+                  <option value="new" class="option new" tabindex="4">
+                    Дата ᐯ
+                  </option>
+                  <option value="old" class="option old" tabindex="5">
+                    Дата ᐱ
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <main class="main">
+          <div class="container">
+            <div class="main__inner">
+              <div class="main__head">
+                <span class="main__head-desc">Описание</span>
+                <div class="main__head-right">
+                  <span class="main__head-status">Статус</span>
+                  <span class="main__head-data">Дата</span>
+                </div>
+              </div>
+              <ul class="main__list">
+                <li class="main__li" v-for="(mask, index) in needDoList" :key="mask.id" data-curr="">
+                  <div class="main__li-inner">
+                    <div class="main__input-group">
+                      <label>
+                        <input type="checkbox" class="main__checkbox"/>
+                        <span class="main__checkbox-pseudo"></span>
+                      </label>
+
+                      <span class="main__text">{{mask.title}}</span>
+                    </div>
+                    <div class="main__right-group">
+                      <span class="main__status"></span>
+                      <span class="main__data"></span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </main>
+      </div>
+      <div class="newtask">
+        <div class="newtask__container">
+          <div class="newtask__head">
+            <div class="newtask__title">Создать новую задачу</div>
+            <button class="newtask__close">🞩</button>
+          </div>
+          <div class="newtask__field">
+            <div class="newtask__description">Описание</div>
+            <input
+              type="text"
+              class="newtask__input"
+              placeholder="Введите описание"
+              v-bind:value="valueInput"
+              v-on:input="handlyInput"
+            />
+          </div>
+          <div class="newtask__button">
+            <button class="newtask__button-in" v-on:click="addTask">Создать</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="outer"></div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
