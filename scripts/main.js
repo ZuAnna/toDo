@@ -63,7 +63,6 @@ const btnCreate = document.querySelector('.newtask__button-in');
 let newEls=document.querySelectorAll('.main__li');
 btnCreate.addEventListener('click', ()=>{
     newEls = document.querySelectorAll('.main__li');
-   // console.log(newEls)
    let currDataAttr;
    newEls.forEach(el=>{
     currDataAttr = el.attributes['data-curr'];
@@ -77,7 +76,6 @@ btnCreate.addEventListener('click', ()=>{
       newEls[i].setAttribute('data-curr', `${newAttr}`);
       let status =  newEls[i].querySelector('.main__status');
       let checkBox = newEls[i].querySelector('.main__checkbox');
-      console.log(status.innerHTML)
       if (status.innerHTML == ''){
          status.innerHTML = 'В работе'
       };
@@ -100,9 +98,43 @@ btnCreate.addEventListener('click', ()=>{
    let boxes = document.querySelectorAll('.main__checkbox');
    let newsLocalStr = JSON.stringify(boxes);
    let newsParse = JSON.parse(newsLocalStr);
-   console.log(newsParse)
+   boxes.forEach(el =>{
+
+   })
+   let currList = document.querySelector(".main__list");
+   let j = document.querySelector('.main__list');
+   
+
 
 
 });
 
 // сохраним данные
+
+
+   window.addEventListener('change', (e)=>{
+
+   let boxes = document.querySelectorAll('.main__checkbox');
+
+   if(e.target.type== 'checkbox'){
+      let boxes = document.querySelectorAll('.main__checkbox');
+      let key;
+      let valueCheck;
+      for (let o = 0; 0 < boxes.length; o++){
+         key = boxes[o].getAttribute('class');
+         valueCheck = boxes[0].checked;
+         // localStorage.setItem(`${boxes[o].className}${[o]}` , ` ${boxes[o].checked}`);
+         localStorage.setItem(`${boxes[o].className}${[o]}` , `${boxes[o].checked}`);
+         console.log(localStorage.getItem(`main__checkbox${[o]}`))
+
+      }
+   }
+})
+localStorage.getItem('main__checkbox')
+newBtnCreateModal.addEventListener('click', ()=>{
+   let listOnes = document.querySelectorAll('.main__li')
+   for (li =0 ; li < listOnes.length; li++){
+      let list = listOnes[li];
+   }
+})
+console.log(localStorage.getItem('main__checkbox1'));
