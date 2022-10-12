@@ -1,4 +1,6 @@
 
+
+
 const addBtn = document.querySelector('.button-create');
 const outer = document.querySelector('.outer');
 const newBtnCreateModal = document.querySelector('.newtask__button-in');
@@ -95,6 +97,10 @@ btnCreate.addEventListener('click', ()=>{
       }
 
    };
+   let boxes = document.querySelectorAll('.main__checkbox');
+   let newsLocalStr = JSON.stringify(boxes);
+   let newsParse = JSON.parse(newsLocalStr);
+   console.log(newsParse)
 
 
 });
