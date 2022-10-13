@@ -10,6 +10,9 @@ const activeOuter = document.querySelector('.outer-active');
 const closeBtn = document.querySelector('newtask__close');
 const bodyAll = document.querySelector('body');
 const outerTwo = document.querySelector('.outer-two');
+let mainChecks = document.querySelectorAll('.main__checkbox');
+let mainLi = document.querySelectorAll('.main__li')
+let mainListMain = document.querySelector('.main__list');
 
 
 
@@ -56,6 +59,44 @@ outer.addEventListener('click', (e) => {
 });
 // NewTask дата и статус
 
+function saveCheckLocal(){
+   let boxes = document.querySelectorAll('.main__checkbox');
+      let key;
+      let valueCheck;
+      try{
+         for (let o = 0; 0 < boxes.length; o++){
+         // key = boxes[o].getAttribute('class');
+      valueCheck = boxes[0].checked;
+      localStorage.setItem(`${boxes[o].className}${[o]}` , `${boxes[o].checked}`);
+
+    }
+    } catch (err) {
+
+}
+}
+function saveElementLi (){
+   for(let li =0; li < mainLi.length; li++){
+      document.querySelector('.main__list').innerHTML += `
+      <li class="main__li" v-for="(mask, index) in needDoList" :key="mask.id" data-curr="">
+                  <div class="main__li-inner">
+                    <div class="main__input-group">
+                      <label>
+                        <input type="checkbox" class="main__checkbox"/>
+                        <span class="main__checkbox-pseudo"></span>
+                      </label>
+
+                      <span class="main__text">{{mask.title}}</span>
+                    </div>
+                    <div class="main__right-group">
+                      <span class="main__status"></span>
+                      <span class="main__data"></span>
+                    </div>
+                  </div>
+                </li>
+      `;
+   }
+ console.log('cd')
+}
 
 // let newEls = document.querySelectorAll('.main__li');
 let listMain = document.querySelector('.main__list')
@@ -95,17 +136,8 @@ btnCreate.addEventListener('click', ()=>{
       }
 
    };
-   let boxes = document.querySelectorAll('.main__checkbox');
-   let newsLocalStr = JSON.stringify(boxes);
-   let newsParse = JSON.parse(newsLocalStr);
-   boxes.forEach(el =>{
-
-   })
-   let currList = document.querySelector(".main__list");
-   let j = document.querySelector('.main__list');
-   
-
-
+   saveCheckLocal();
+   saveElementLi();
 
 });
 
@@ -117,24 +149,7 @@ btnCreate.addEventListener('click', ()=>{
    let boxes = document.querySelectorAll('.main__checkbox');
 
    if(e.target.type== 'checkbox'){
-      let boxes = document.querySelectorAll('.main__checkbox');
-      let key;
-      let valueCheck;
-      for (let o = 0; 0 < boxes.length; o++){
-         key = boxes[o].getAttribute('class');
-         valueCheck = boxes[0].checked;
-         // localStorage.setItem(`${boxes[o].className}${[o]}` , ` ${boxes[o].checked}`);
-         localStorage.setItem(`${boxes[o].className}${[o]}` , `${boxes[o].checked}`);
-         console.log(localStorage.getItem(`main__checkbox${[o]}`))
+      saveCheckLocal();
+   }
 
-      }
-   }
-})
-localStorage.getItem('main__checkbox')
-newBtnCreateModal.addEventListener('click', ()=>{
-   let listOnes = document.querySelectorAll('.main__li')
-   for (li =0 ; li < listOnes.length; li++){
-      let list = listOnes[li];
-   }
-})
-console.log(localStorage.getItem('main__checkbox1'));
+});
