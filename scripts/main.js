@@ -139,6 +139,14 @@ btnCreate.addEventListener('click', ()=>{
    saveCheckLocal();
    saveElementLi();
 
+let listVals = document.querySelectorAll('.main__text');
+let listArr=[];
+listVals.forEach(ell=>{
+   let ellVal = ell.innerText;
+   listArr.push(ellVal);
+
+})
+
 });
 
 // сохраним данные
@@ -153,3 +161,26 @@ btnCreate.addEventListener('click', ()=>{
    }
 
 });
+
+let searchBtn = document.querySelector('.search-ico');
+let searchInp = document.querySelector('.search');
+let listVals = document.querySelectorAll('.main__text');
+searchInp.addEventListener('input', (e)=>{
+   let listVals = document.querySelectorAll('.main__text');
+   let val =e.target.value.trim();
+   if(val!= ''){
+      listVals.forEach(el=>{
+         if(el.innerText.search(val) == -1){
+            el.closest('.main__li').classList.add('hide');
+
+         } else {
+            el.closest('.main__li').classList.remove('hide');
+         }
+      });
+   } else {
+      listVals.forEach(el=>{
+         el.closest('.main__li').classList.remove('hide');
+      })
+
+   }
+})
