@@ -74,29 +74,6 @@ function saveCheckLocal(){
 
 }
 }
-function saveElementLi (){
-   for(let li =0; li < mainLi.length; li++){
-      document.querySelector('.main__list').innerHTML += `
-      <li class="main__li" v-for="(mask, index) in needDoList" :key="mask.id" data-curr="">
-                  <div class="main__li-inner">
-                    <div class="main__input-group">
-                      <label>
-                        <input type="checkbox" class="main__checkbox"/>
-                        <span class="main__checkbox-pseudo"></span>
-                      </label>
-
-                      <span class="main__text">{{mask.title}}</span>
-                    </div>
-                    <div class="main__right-group">
-                      <span class="main__status"></span>
-                      <span class="main__data"></span>
-                    </div>
-                  </div>
-                </li>
-      `;
-   }
- console.log('cd')
-}
 
 // let newEls = document.querySelectorAll('.main__li');
 let listMain = document.querySelector('.main__list')
@@ -137,7 +114,6 @@ btnCreate.addEventListener('click', ()=>{
 
    };
    saveCheckLocal();
-   saveElementLi();
 
 let listVals = document.querySelectorAll('.main__text');
 let listArr=[];
