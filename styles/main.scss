@@ -439,3 +439,86 @@ font-size: 14px;
 .hide{
    display: none;
 }
+// адаптив
+@media screen and (max-width:1595px){
+ .container{
+   margin: 0 auto;
+}
+.header{
+   margin-left: 200px;
+   margin-right: 50px;
+}
+.header__top{
+   justify-content: space-between;
+   padding-right: 50px;
+}
+.header__down{
+   justify-content: space-around;
+}
+.header__sort{
+   padding-right: 80px;
+   display: flex;
+   align-items: start;
+   &-text{
+      margin-right: 10px;
+   }
+
+}
+.search{
+   max-width: 50%;
+}
+
+.button-create{
+   margin-right: 50px;
+}
+.main{
+   &__inner{
+      padding-left: 220px;
+   }
+}
+}
+@media screen and (max-width:1310px){
+
+   .main__inner{
+      padding-left: 200px;
+   }
+}
+@media screen and (max-width:1209px){
+
+   .main__inner{
+      padding-left: 180px;
+   }
+}
+@media screen and (max-width:1100px){
+   body{
+      overflow-x: hidden;
+   }
+   .header__sort{
+      display: flex;
+      align-items: start;
+      &-text{
+         padding-right: 10px;
+      }
+   }
+   .main__head-right{
+      padding: 5px 0 ;
+   }
+   .main__head{
+      // justify-content: space-around;
+   }
+   .main__inner{
+      padding-left: 90px;
+   }
+   .header__down{
+      display: block;
+   }
+   .search{
+      max-width: 30%;
+      margin-bottom: 10px;
+   }
+   .header__sort{
+      margin-left: 40px;
+   }
+.main__li{
+}
+}
