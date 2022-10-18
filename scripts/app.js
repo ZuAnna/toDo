@@ -1,9 +1,4 @@
 Vue.createApp({
-  initData : {
-    valueInput:'',
-    needDoList: []
-
-  },
   data() {
     return {
       valueInput:'',
