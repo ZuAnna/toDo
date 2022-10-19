@@ -753,7 +753,7 @@ font-size: 14px;
 }
 }
 
-@media screen and (max-width:447px){
+@media screen and (max-width:447px), (orientation: portrait) and (max-width:447px){
 .newtask{
    &__container{
       min-width: 264px;
@@ -778,7 +778,7 @@ font-size: 14px;
  }
 }
 
-@media screen and (max-width:320px){
+@media screen and (max-width:320px),  (orientation: portrait) and (max-width:320px){
    .main{
      &__status{
       margin-left: 5px;
