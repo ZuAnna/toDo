@@ -63,15 +63,6 @@ $hoverListColor: #F6F9FF;
       align-items: center;
    }
 
-   // .header__search
-
-   &__search {
-
-
-   }
-
-   // .header__sort
-
    &__sort {
 
    }
@@ -124,6 +115,7 @@ width: 65vw;
 margin-right: 20px;
 border:none;
 outline: none;
+background: transparent;
 
   &::placeholder{
 @include textStyle;
@@ -138,10 +130,12 @@ color: $searchPlaceHolderColor;
    appearance: none;
    @include textStyle;
    font-size: 14px;
+   background-color: transparent;
 }
 .option {
    padding-right: 15px;
  font-size: 15px;
+ background: transparent;
 
  outline: none;
 }
@@ -787,4 +781,7 @@ font-size: 14px;
       margin-right: 5px;
      }
    }
+}
+body{
+   background-color: #483948;
 }

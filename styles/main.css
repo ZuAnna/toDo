@@ -13,15 +13,15 @@
 
 .search-ico { color: #59BBA6; cursor: pointer; background-color: transparent; border: none; }
 
-.search { font-family: "Noto Sans", sans-serif; font-weight: 400; font-size: 14px; ine-height: 132%; color: #16191D; font-size: 18px; width: 65vw; margin-right: 20px; border: none; outline: none; }
+.search { font-family: "Noto Sans", sans-serif; font-weight: 400; font-size: 14px; ine-height: 132%; color: #16191D; font-size: 18px; width: 65vw; margin-right: 20px; border: none; outline: none; background: transparent; }
 .search::-webkit-input-placeholder { font-family: "Noto Sans", sans-serif; font-weight: 400; font-size: 14px; ine-height: 132%; color: #16191D; color: #C4C4C4; }
 .search:-ms-input-placeholder { font-family: "Noto Sans", sans-serif; font-weight: 400; font-size: 14px; ine-height: 132%; color: #16191D; color: #C4C4C4; }
 .search::-ms-input-placeholder { font-family: "Noto Sans", sans-serif; font-weight: 400; font-size: 14px; ine-height: 132%; color: #16191D; color: #C4C4C4; }
 .search::placeholder { font-family: "Noto Sans", sans-serif; font-weight: 400; font-size: 14px; ine-height: 132%; color: #16191D; color: #C4C4C4; }
 
-.select { border: none; position: relative; -webkit-appearance: none; -moz-appearance: none; appearance: none; font-family: "Noto Sans", sans-serif; font-weight: 400; font-size: 14px; ine-height: 132%; color: #16191D; font-size: 14px; }
+.select { border: none; position: relative; -webkit-appearance: none; -moz-appearance: none; appearance: none; font-family: "Noto Sans", sans-serif; font-weight: 400; font-size: 14px; ine-height: 132%; color: #16191D; font-size: 14px; background-color: transparent; }
 
-.option { padding-right: 15px; font-size: 15px; outline: none; }
+.option { padding-right: 15px; font-size: 15px; background: transparent; outline: none; }
 
 .newtask { visibility: hidden; width: 100%; height: 100%; z-index: 10; opacity: 0; -webkit-transition: opacity 0.5 ease-in-out; transition: opacity 0.5 ease-in-out; z-index: 10; }
 .newtask.active { display: block; visibility: visible; opacity: 1; overflow: hidden; }
@@ -146,5 +146,6 @@
   .header .container { padding: 0 20px; } }
 @media screen and (max-width: 320px), (orientation: portrait) and (max-width: 320px) { .main__status { margin-left: 5px; }
   .main__data { margin-right: 5px; } }
+body { background-color: #483948; }
 
 /*# sourceMappingURL=main.css.map */
