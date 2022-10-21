@@ -105,7 +105,8 @@
                   <span class="main__head-data">Дата</span>
                 </div>
               </div>
-              <ul class="main__list">
+              <ul class="main__listTwo"></ul>
+              <ul class="main__list" v-cloak>
                 <li class="main__li" v-for="(mask, index) in needDoList" :key="mask.id" data-curr="">
                   <div class="main__li-inner">
                     <div class="main__input-group">
@@ -139,6 +140,7 @@
               type="text"
               class="newtask__input"
               placeholder="Введите описание"
+              name="description"
               v-bind:value="valueInput"
               v-on:input="handlyInput"
             />
@@ -152,7 +154,7 @@
 
     <div class="outer"></div>
     <!-- <script src="https://unpkg.com/vue@next"></script> -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/main.js"></script>
   </body>

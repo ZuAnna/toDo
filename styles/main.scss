@@ -425,7 +425,7 @@ font-size: 14px;
 
 }
 ul.main__list{
-   margin-bottom: 20px;
+   margin-bottom: 0;
 }
 .container {
 }
@@ -785,3 +785,12 @@ ul.main__list{
    }
 }
 
+[v-cloak]{
+   display: none;
+}
+// .main__status{
+//    color: #134EC1;
+// }
+// .main__checkbox:checked  .main__status{
+//    color: #F89B11;
+// }
