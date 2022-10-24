@@ -176,11 +176,10 @@ function addItem() {
       checked: false,
       data: dataCurr[d].innerText,
       status: mainStatus[d].innerText,
-      color: mainStatus[d].style.color
+      color: mainStatus[d].style.color,
     };
     items[d] = textIn;
   }
-
 }
 
 function idForCheck() {
@@ -195,20 +194,19 @@ function checkStatus() {
   for (let c = 0; c < mainChecks.length; c++) {
     items[c]["checked"] = mainChecks[c].checked;
     items[c]["status"] = mainStatus[c].innerText;
-    if(mainChecks[c]["checked"]){
-      items[c]['status'] = 'Выполнено';
-      items[c]['color'] = '#134EC1'
+    if (mainChecks[c]["checked"]) {
+      items[c]["status"] = "Выполнено";
+      items[c]["color"] = "#134EC1";
       mainStatus[c].style.color = "#134EC1";
-      mainStatus[c].innerText = 'Выполнено'
+      mainStatus[c].innerText = "Выполнено";
     } else {
-      items[c]['status'] = 'В работе';
-      items[c]['color'] = '#F89B11'
-      mainStatus[c].innerText = 'В работе'
+      items[c]["status"] = "В работе";
+      items[c]["color"] = "#F89B11";
+      mainStatus[c].innerText = "В работе";
       mainStatus[c].style.color = "#F89B11";
     }
   }
 }
-
 
 newBtnCreateModal.addEventListener("click", () => {
   let liAfter = document.querySelectorAll(".main__li");
@@ -218,10 +216,9 @@ newBtnCreateModal.addEventListener("click", () => {
   localStorage.setItem("items", JSON.stringify(items));
 });
 
-
 window.addEventListener("change", (e) => {
-  let status = document.querySelectorAll('.main__status');
-  let checkBox = document.querySelectorAll('main__checkbox');
+  let status = document.querySelectorAll(".main__status");
+  let checkBox = document.querySelectorAll("main__checkbox");
   let mainChecks = document.querySelectorAll(".main__checkbox");
   let mainStatus = document.querySelectorAll(".main__status");
   if (e.target.type == "checkbox") {
@@ -238,27 +235,47 @@ function displayItems() {
   let list = document.querySelector(".main__listTwo");
 
   let localLength = localStorage.getItem("items").length;
-  list.innerHTML += items.map((item, index)=>{
-    return `<li class="main__li" v-for="(mask, index) in needDoList" :key="mask.id" data-curr="">
+  list.innerHTML += items
+    .map((item, index) => {
+      return `<li class="main__li" v-for="(mask, index) in needDoList" :key="mask.id" data-curr="">
     <div class="main__li-inner">
       <div class="main__input-group">
         <label>
-          <input type="checkbox" class="main__checkbox" ${items[index]['checked']? 'checked' : ''}/>
+          <input type="checkbox" class="main__checkbox" ${
+            items[index]["checked"] ? "checked" : ""
+          }/>
           <span class="main__checkbox-pseudo"></span>
         </label>
 
-        <span class="main__text">${items[index]['text']}</span>
+        <span class="main__text">${items[index]["text"]}</span>
       </div>
       <div class="main__right-group">
-        <span class="main__status">${items[index]['checked']? 'Выполнено': 'В работе'}</span>
-        <span class="main__data"}>${items[index]['data']}</span>
+        <span class="main__status">${
+          items[index]["checked"] ? "Выполнено" : "В работе"
+        }</span>
+        <span class="main__data"}>${items[index]["data"]}</span>
+        <div class="delete">
+      <span class="delete__in" v-on:click="needDoList.splice(index, 1)"></span>
+      </div>
       </div>
     </div>
-  </li>`
-  }).join('')
-
+  </li>`;
+    })
+    .join("");
 }
-
 
 displayItems();
 checkStatus();
+
+let deleteBtn = document.querySelectorAll('.delete__in');
+ for (let r=0; r<deleteBtn.length; r++){
+  let mainLiDelete = document.querySelectorAll(".main__li");
+  deleteBtn[r].addEventListener('click',()=>{
+    let item = mainLiDelete[r];
+    item.remove();
+    items.splice([r], 1);
+    localStorage.setItem("items", JSON.stringify(items))
+
+
+  })
+ }

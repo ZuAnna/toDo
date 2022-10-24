@@ -17,6 +17,9 @@ Vue.createApp({
       });
 
       this.valueInput = '';
-    }
+    },
+    // delTask: function (){
+    //   this.needDoList.splice(this.needDoList.indexOf(mask), 1)
+    // }
   },
 }).mount("#app");

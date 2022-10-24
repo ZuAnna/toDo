@@ -62,12 +62,15 @@
           <div class="container">
             <div class="header__top">
               <h1 class="header-one">To do list</h1>
-              <div class="button-create" tabindex="1" title="добавить задачу">+</div>
+              <div class="button-create" tabindex="1" title="добавить задачу">
+                +
+              </div>
             </div>
             <div class="header__down">
               <div class="header__search">
                 <button class="material-symbols-outlined search-ico">
-                  search</button>
+                  search
+                </button>
                 <input
                   type="text"
                   class="search"
@@ -107,11 +110,16 @@
               </div>
               <ul class="main__listTwo"></ul>
               <ul class="main__list" v-cloak>
-                <li class="main__li" v-for="(mask, index) in needDoList" :key="mask.id" data-curr="">
+                <li
+                  class="main__li"
+                  v-for="(mask, index) in needDoList"
+                  :key="mask.id"
+                  data-curr=""
+                >
                   <div class="main__li-inner">
                     <div class="main__input-group">
                       <label>
-                        <input type="checkbox" class="main__checkbox"/>
+                        <input type="checkbox" class="main__checkbox" />
                         <span class="main__checkbox-pseudo"></span>
                       </label>
 
@@ -120,6 +128,9 @@
                     <div class="main__right-group">
                       <span class="main__status"></span>
                       <span class="main__data"></span>
+                      <div class="delete">
+                        <span class="delete__in" v-on:click="needDoList.splice(index, 1)"></span>
+                      </div>
                     </div>
                   </div>
                 </li>
@@ -143,17 +154,19 @@
               name="description"
               v-bind:value="valueInput"
               v-on:input="handlyInput"
+              autocomplete="off"
             />
           </div>
           <div class="newtask__button">
-            <button class="newtask__button-in" v-on:click="addTask">Создать</button>
+            <button class="newtask__button-in" v-on:click="addTask">
+              Создать
+            </button>
           </div>
         </div>
       </div>
     </div>
 
     <div class="outer"></div>
-    <!-- <script src="https://unpkg.com/vue@next"></script> -->
     <script src="https://unpkg.com/vue@next"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/main.js"></script>
