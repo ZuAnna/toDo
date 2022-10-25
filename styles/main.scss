@@ -718,8 +718,13 @@ ul.main__list{
       padding: 0;
    }
    &__status{
-      margin-right: 10px;
+      margin-right: 4%;
    }
+
+}
+.delete{
+   margin-left: 15px;
+   transform: translateY(10%);
 }
 .main__checkbox:checked + .main__checkbox-pseudo::before{
    left: 50%;
@@ -775,6 +780,13 @@ ul.main__list{
    padding: 0 20px;
    }
  }
+}
+@media screen and (max-width:420px), (orientation: portrait) and (max-width:420px){
+   .main{
+      &__status{
+         display: none;
+      }
+   }
 }
 
 @media screen and (max-width:320px),  (orientation: portrait) and (max-width:320px){
