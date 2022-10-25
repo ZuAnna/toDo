@@ -134,22 +134,58 @@ let searchInp = document.querySelector(".search");
 let listVals = document.querySelectorAll(".main__text");
 searchInp.addEventListener("input", (e) => {
   let listVals = document.querySelectorAll(".main__text");
+  let dataSearch = document.querySelectorAll(".main__data");
+  let statusSearch = document.querySelectorAll(".main__status");
   let val = e.target.value.trim();
   if (val != "") {
-    listVals.forEach((el) => {
-      if (el.innerText.search(val) == -1) {
+    let textFlag = true;
+    let statusFlag = true;
+    let dataFlag = true;
+    listVals.forEach(el => {
+      let termText = el.innerText.toLowerCase();
+      let newVal = val.toLowerCase();
+      if (termText.search(newVal) === -1) {
         el.closest(".main__li").classList.add("hide");
+        console.log('No', newVal)
       } else {
         el.closest(".main__li").classList.remove("hide");
       }
     });
+    // statusSearch.forEach(el=>{
+    //   let term = el.innerText.toLowerCase();
+    //   let newVal = val.toLowerCase();
+    //   console.log(term.search(newVal), 'Status')
+    //   if(term.search(newVal)==-1){
+    //     el.closest(".main__li").classList.add("hide");
+    //     console.log('No', newVal)
+    //   } else {
+    //     el.closest(".main__li").classList.remove("hide");
+    //     console.log('Yes', el.innerText)
+    //   }
+    // });
+    // dataSearch.forEach(el=>{
+    //   let newVal = val.toLowerCase();
+    //   console.log(el.innerText.search(newVal), 'Data')
+    //   if(el.innerText.search(newVal)==-1){
+    //     el.closest(".main__li").classList.add("hide");
+    //     console.log('No', newVal)
+    //   } else {
+    //     el.closest(".main__li").classList.remove("hide");
+    //     console.log('Yes', el.innerText)
+    //   }
+    // });
   } else {
     listVals.forEach((el) => {
       el.closest(".main__li").classList.remove("hide");
     });
+    dataSearch.forEach(el=>{
+      el.closest(".main__li").classList.remove("hide");
+    });
+    statusSearch.forEach(el=>{
+      el.closest(".main__li").classList.remove("hide");
+    });
   }
 });
-
 //  сохраним данные
 let items = [];
 if (localStorage.items) {
@@ -161,8 +197,6 @@ if (localStorage.items) {
 
 let mainLiSave;
 let mainListSave;
-console.log(items);
-
 let textIn = {};
 
 function addItem() {
@@ -279,3 +313,9 @@ let deleteBtn = document.querySelectorAll('.delete__in');
 
   })
  }
+
+//  filter
+// let dataSave = document.querySelectorAll(".main__data")
+// dataSave.forEach(el=>{
+//   console.log(el.innerText)
+// })
