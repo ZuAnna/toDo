@@ -125,12 +125,15 @@ color: $searchPlaceHolderColor;
 }
 
 .select {
-   border: none;
+   border: 1px solid #16191D;
+   border-radius: 5px;
+   outline: transparent;
    position: relative;
    appearance: none;
    @include textStyle;
    font-size: 14px;
    background-color: transparent;
+   padding: 2px 4px;
 }
 .option {
    padding-right: 15px;
@@ -517,23 +520,6 @@ ul.main__list{
       margin-bottom: 10px;
    }
 }
-@media screen and (max-width:776px){
-   .newtask{
-      &__container{
-         max-width: 60%;
-      }
-      &__close{
-         margin-left: 20px;
-      }
-      &__head{
-         align-items: start;
-      }
-      &__input{
-         max-width: 100%;
-      }
-   }
-}
-
 @media screen and (max-width:880px){
    .search{
       max-width: 80%;
@@ -567,6 +553,24 @@ ul.main__list{
       transform: translateY(-50%);
    }
 }
+@media screen and (max-width:776px){
+   .newtask{
+      &__container{
+         max-width: 60%;
+      }
+      &__close{
+         margin-left: 20px;
+      }
+      &__head{
+         align-items: start;
+      }
+      &__input{
+         max-width: 100%;
+      }
+   }
+}
+
+
 @media screen and (max-width:687px){
    .newtask{
       &__container{

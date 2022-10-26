@@ -79,18 +79,19 @@
                 />
               </div>
               <div class="header__sort">
-                <div class="header__sort-text">Сортировать по:</div>
+                <!-- <div class="header__sort-text">Сортировать по:</div> -->
                 <select
                   name="dataSort"
                   id="dataSort"
                   class="select"
                   tabindex="3"
                 >
+                  <option value=""> -Сортировка по дате- </option>
                   <option value="new" class="option new" tabindex="4">
-                    Дата ᐯ
+                    Дата от ранних ᐯ
                   </option>
                   <option value="old" class="option old" tabindex="5">
-                    Дата ᐱ
+                    Дата от поздних ᐱ
                   </option>
                 </select>
               </div>
@@ -143,7 +144,7 @@
         <div class="newtask__container">
           <div class="newtask__head">
             <div class="newtask__title">Создать новую задачу</div>
-            <button class="newtask__close">🞩</button>
+            <button class="newtask__close">x</button>
           </div>
           <div class="newtask__field">
             <div class="newtask__description">Описание</div>
@@ -168,6 +169,8 @@
 
     <div class="outer"></div>
     <script src="https://unpkg.com/vue@next"></script>
+    <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
+
     <script src="scripts/app.js"></script>
     <script src="scripts/main.js"></script>
   </body>

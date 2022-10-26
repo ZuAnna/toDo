@@ -19,7 +19,7 @@
 .search::-ms-input-placeholder { font-family: "Noto Sans", sans-serif; font-weight: 400; font-size: 14px; ine-height: 132%; color: #16191D; color: #C4C4C4; }
 .search::placeholder { font-family: "Noto Sans", sans-serif; font-weight: 400; font-size: 14px; ine-height: 132%; color: #16191D; color: #C4C4C4; }
 
-.select { border: none; position: relative; -webkit-appearance: none; -moz-appearance: none; appearance: none; font-family: "Noto Sans", sans-serif; font-weight: 400; font-size: 14px; ine-height: 132%; color: #16191D; font-size: 14px; background-color: transparent; }
+.select { border: 1px solid #16191D; border-radius: 5px; outline: transparent; position: relative; -webkit-appearance: none; -moz-appearance: none; appearance: none; font-family: "Noto Sans", sans-serif; font-weight: 400; font-size: 14px; ine-height: 132%; color: #16191D; font-size: 14px; background-color: transparent; padding: 2px 4px; }
 
 .option { padding-right: 15px; font-size: 15px; background: transparent; outline: none; }
 
@@ -87,10 +87,6 @@ ul.main__list { margin-bottom: 0; }
   .main__inner { padding-left: 100px; }
   .header__down { display: block; }
   .search { max-width: 30%; margin-bottom: 10px; } }
-@media screen and (max-width: 776px) { .newtask__container { max-width: 60%; }
-  .newtask__close { margin-left: 20px; }
-  .newtask__head { -webkit-box-align: start; -ms-flex-align: start; align-items: start; }
-  .newtask__input { max-width: 100%; } }
 @media screen and (max-width: 880px) { .search { max-width: 80%; }
   .header__sort { padding-right: 50px; }
   .main__input-group { max-width: 30%; text-align: left; }
@@ -98,6 +94,10 @@ ul.main__list { margin-bottom: 0; }
   .main__text { max-width: 100%; text-align: left; word-break: auto; text-indent: 0; padding-left: 0; margin-left: 0; z-index: 4; }
   .main__li-inner { -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
   .main__checkbox-pseudo { top: 50%; -webkit-transform: translateY(-50%); transform: translateY(-50%); } }
+@media screen and (max-width: 776px) { .newtask__container { max-width: 60%; }
+  .newtask__close { margin-left: 20px; }
+  .newtask__head { -webkit-box-align: start; -ms-flex-align: start; align-items: start; }
+  .newtask__input { max-width: 100%; } }
 @media screen and (max-width: 687px) { .newtask__container { padding: 50px 50px 30px 50px; }
   .newtask__head { display: block; position: relative; }
   .newtask__close { position: absolute; top: -30px; right: -35px; }

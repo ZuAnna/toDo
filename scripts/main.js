@@ -129,51 +129,26 @@ btnCreate.addEventListener("click", () => {
 });
 
 // search
-let searchBtn = document.querySelector(".search-ico");
 let searchInp = document.querySelector(".search");
 let listVals = document.querySelectorAll(".main__text");
 searchInp.addEventListener("input", (e) => {
   let listVals = document.querySelectorAll(".main__text");
   let dataSearch = document.querySelectorAll(".main__data");
   let statusSearch = document.querySelectorAll(".main__status");
+  let listNew = document.querySelectorAll(".main__li")
   let val = e.target.value.trim();
   if (val != "") {
-    let textFlag = true;
-    let statusFlag = true;
-    let dataFlag = true;
-    listVals.forEach(el => {
-      let termText = el.innerText.toLowerCase();
+    for(let l = 0; l< listNew.length; l++ ){
       let newVal = val.toLowerCase();
-      if (termText.search(newVal) === -1) {
-        el.closest(".main__li").classList.add("hide");
-        console.log('No', newVal)
+      let termText = listVals[l].innerText.toLowerCase();
+      let termData = dataSearch[l].innerText.toLowerCase();
+      let termStatus = statusSearch[l].innerText.toLowerCase();
+      if(termText.search(newVal)==-1 && termData.search(newVal)== -1 && termStatus.search(newVal)== -1){
+        listNew[l].classList.add("hide");
       } else {
-        el.closest(".main__li").classList.remove("hide");
+        listNew[l].classList.remove("hide");
       }
-    });
-    // statusSearch.forEach(el=>{
-    //   let term = el.innerText.toLowerCase();
-    //   let newVal = val.toLowerCase();
-    //   console.log(term.search(newVal), 'Status')
-    //   if(term.search(newVal)==-1){
-    //     el.closest(".main__li").classList.add("hide");
-    //     console.log('No', newVal)
-    //   } else {
-    //     el.closest(".main__li").classList.remove("hide");
-    //     console.log('Yes', el.innerText)
-    //   }
-    // });
-    // dataSearch.forEach(el=>{
-    //   let newVal = val.toLowerCase();
-    //   console.log(el.innerText.search(newVal), 'Data')
-    //   if(el.innerText.search(newVal)==-1){
-    //     el.closest(".main__li").classList.add("hide");
-    //     console.log('No', newVal)
-    //   } else {
-    //     el.closest(".main__li").classList.remove("hide");
-    //     console.log('Yes', el.innerText)
-    //   }
-    // });
+    }
   } else {
     listVals.forEach((el) => {
       el.closest(".main__li").classList.remove("hide");
@@ -185,7 +160,39 @@ searchInp.addEventListener("input", (e) => {
       el.closest(".main__li").classList.remove("hide");
     });
   }
+
 });
+// Select Date
+// let select = document.querySelector(".select");
+
+// select.addEventListener('change', ()=>{
+//   let newDateForSort = Date.now();
+//   let selectValue = select.value
+//   let itemsDateMs;
+//   let liSort = document.querySelectorAll(".main__li");
+// let dataSort = document.querySelectorAll(".main__data");
+//   let ul = document.querySelector(".main__list")
+//   if(selectValue==='old'){
+    // for(let l = liSort.length -1 ; l>= 0; l--){
+    //   liSort
+
+    // }
+//     let index =[];
+//     for(let l = 0; l< liSort.length; l++){
+//       index.push(l);
+//     }
+//     index = index.reverse()
+//     for(let l = 0; l< liSort.length; l++){
+//       let indexNew = index[l];
+//       let oldEl = liSort[l];
+//       liSort[l] = liSort[indexNew];
+//       console.log(liSort[indexNew], l)
+//     }
+//   }
+// })
+
+
+
 //  сохраним данные
 let items = [];
 if (localStorage.items) {
