@@ -162,34 +162,7 @@ searchInp.addEventListener("input", (e) => {
   }
 
 });
-// Select Date
-// let select = document.querySelector(".select");
 
-// select.addEventListener('change', ()=>{
-//   let newDateForSort = Date.now();
-//   let selectValue = select.value
-//   let itemsDateMs;
-//   let liSort = document.querySelectorAll(".main__li");
-// let dataSort = document.querySelectorAll(".main__data");
-//   let ul = document.querySelector(".main__list")
-//   if(selectValue==='old'){
-    // for(let l = liSort.length -1 ; l>= 0; l--){
-    //   liSort
-
-    // }
-//     let index =[];
-//     for(let l = 0; l< liSort.length; l++){
-//       index.push(l);
-//     }
-//     index = index.reverse()
-//     for(let l = 0; l< liSort.length; l++){
-//       let indexNew = index[l];
-//       let oldEl = liSort[l];
-//       liSort[l] = liSort[indexNew];
-//       console.log(liSort[indexNew], l)
-//     }
-//   }
-// })
 
 
 
@@ -321,8 +294,54 @@ let deleteBtn = document.querySelectorAll('.delete__in');
   })
  }
 
-//  filter
-// let dataSave = document.querySelectorAll(".main__data")
-// dataSave.forEach(el=>{
-//   console.log(el.innerText)
-// })
+
+// Select Date
+console.log(items)
+let select = document.querySelector(".select");
+let flagSelect = true;
+select.addEventListener('change', ()=>{
+  let noListen = document.querySelector('.noListen');
+  let newDateForSort = Date.now();
+  let selectValue = select.value
+  let itemsDateMs;
+  let liSort = document.querySelectorAll(".main__li");
+let dataSort = document.querySelectorAll(".main__data");
+  let ul = document.querySelector(".main__listTwo");
+  let ulTwo = document.querySelector(".main__list");
+
+
+  if(selectValue==='old'){
+    let newTime;
+    let timeMy;
+    console.log(liSort)
+    for (let i = liSort.length - 2; i >= 0; i--) {
+      ulTwo.appendChild(liSort[i]);
+
+    }
+
+    console.log(items)
+
+    let  newItems = []
+
+    for (let l = 0; l< liSort.length; l++){
+      newItems[l] = items[l]
+    }
+    newItems.reverse();
+    console.log(newItems);
+    // localStorage.setItem("items", JSON.stringify(items));
+    console.log(newItems)
+
+  } else if (selectValue==='new'){
+    for (let i = liSort.length - 2; i >= 0; i--) {
+      ulTwo.appendChild(liSort[i]);
+    }
+  }
+  // items.reverse();
+    // localStorage.setItem("items", JSON.stringify(items));
+    // console.log(items)
+  // }
+
+})
+console.log(items)
+let dataNewMy = new Date;
+// console.log(dataNewMy.getTime())
