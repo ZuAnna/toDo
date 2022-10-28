@@ -296,51 +296,63 @@ let deleteBtn = document.querySelectorAll('.delete__in');
 
 
 // Select Date
-console.log(items)
 let select = document.querySelector(".select");
 let flagSelect = true;
 select.addEventListener('change', ()=>{
-  let noListen = document.querySelector('.noListen');
   let newDateForSort = Date.now();
   let selectValue = select.value
-  let itemsDateMs;
   let liSort = document.querySelectorAll(".main__li");
 let dataSort = document.querySelectorAll(".main__data");
+let checksSort = document.querySelectorAll(".main__checkbox");
   let ul = document.querySelector(".main__listTwo");
   let ulTwo = document.querySelector(".main__list");
 
+  for (let r=0; r < liSort.length; r++){
+
+  }
 
   if(selectValue==='old'){
-    let newTime;
-    let timeMy;
-    console.log(liSort)
     for (let i = liSort.length - 2; i >= 0; i--) {
       ulTwo.appendChild(liSort[i]);
 
     }
+    let liNoBorderBottom = ul.querySelector('.main__li');
+    liNoBorderBottom.style.borderBottom = 'none';
+    checksSort.forEach(el=>{
+      el.disabled = true;
+    })
 
-    console.log(items)
+    // let  newItems = []
+    // for (let l = 0; l< liSort.length; l++){
+    //   newItems[l] = items[l]
+    // }
+     let newItems = items.slice();
 
-    let  newItems = []
-
-    for (let l = 0; l< liSort.length; l++){
-      newItems[l] = items[l]
-    }
     newItems.reverse();
-    console.log(newItems);
-    // localStorage.setItem("items", JSON.stringify(items));
-    console.log(newItems)
+    console.log('old',newItems);
+    // localStorage.setItem("items", JSON.stringify(newItems));
 
   } else if (selectValue==='new'){
     for (let i = liSort.length - 2; i >= 0; i--) {
       ulTwo.appendChild(liSort[i]);
+      checksSort.forEach(el=>{
+        el.disabled = false;
+      })
     }
+    // let  newItems = []
+    // for (let l = 0; l< liSort.length; l++){
+    //   newItems[l] = items[l]
+    // }
+    let newItems = items.slice();
+    newItems.reverse();
+    // localStorage.setItem("items", JSON.stringify(newItems));
+    console.log('new',newItems);
   }
   // items.reverse();
     // localStorage.setItem("items", JSON.stringify(items));
     // console.log(items)
   // }
-
+  console.log(items)
 })
 console.log(items)
 let dataNewMy = new Date;
