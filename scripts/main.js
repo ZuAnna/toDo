@@ -269,7 +269,7 @@ function displayItems() {
         }</span>
         <span class="main__data"}>${items[index]["data"]}</span>
         <div class="delete">
-      <span class="delete__in" v-on:click="needDoList.splice(index, 1)"></span>
+      <span class="delete__in" v-on:click="needDoList.splice(index, 1)" data-title="удалить"></span>
       </div>
       </div>
     </div>

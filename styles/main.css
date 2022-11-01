@@ -8,8 +8,10 @@
 
 .header-one { font-family: "Montserrat", sans-serif; font-weight: 700; line-height: 132%; color: #16191D; font-size: 24px; }
 
-.button-create { width: 40px; height: 40px; border-radius: 50%; background-color: #D6DBEB; color: #314B99; font-size: 35px; font-weight: 600; text-align: center; cursor: pointer; -webkit-transition: all 0.4s ease-in-out; transition: all 0.4s ease-in-out; }
+.button-create { width: 40px; height: 40px; border-radius: 50%; background-color: #D6DBEB; color: #314B99; font-size: 35px; font-weight: 600; text-align: center; position: relative; cursor: pointer; -webkit-transition: all 0.4s ease-in-out; transition: all 0.4s ease-in-out; }
+.button-create::after { content: attr(data-title); position: absolute; z-index: 10; left: -50px; bottom: 70%; background-color: #96b8fc; color: #16191D; text-align: center; -webkit-transform: translateX(-50%); transform: translateX(-50%); font-family: "Noto Sans", sans-serif; font-size: 14px; padding: 3px 5px; white-space: nowrap; opacity: 0; -webkit-transition: all 0.4s ease-in-out; transition: all 0.4s ease-in-out; }
 .button-create:hover { background-color: #5f6fa7; color: #fff; }
+.button-create:hover::after { opacity: 1; }
 
 .search-ico { color: #59BBA6; cursor: pointer; background-color: transparent; border: none; }
 
@@ -57,6 +59,7 @@
 .main__checkbox-pseudo::before { content: url(../img/done.svg); position: absolute; top: 40%; left: 60%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); width: 15px; height: 15px; opacity: 0; -webkit-transition: opacity 0.2s linear; transition: opacity 0.2s linear; }
 .main__checkbox:checked + .main__checkbox-pseudo::before { content: url(../img/done.svg); opacity: 1; position: absolute; top: 40%; left: 60%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); width: 15px; height: 15px; }
 .main__checkbox:checked + .main__checkbox-pseudo { border-color: #134EC1; }
+.main__checkbox:disabled + .main__checkbox-pseudo { background-color: #e2e2e2; }
 .main__text { padding-left: 24px; }
 .main__status { color: #F89B11; text-align: left; display: inline-block; width: 80px; }
 .main__checkbox:checked ~ .main__status { color: #134EC1; }
@@ -154,7 +157,9 @@ ul.main__list { margin-bottom: 0; }
 
 .delete { display: inline-block; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-transition: all 0.6s ease-in-out; transition: all 0.6s ease-in-out; }
 .delete:hover { -webkit-transform: rotate(10deg); transform: rotate(10deg); }
-.delete__in { background-image: url(../img/trash.png); background-repeat: no-repeat; background-size: 24px; background-position: center; display: block; width: 24px; height: 24px; cursor: pointer; margin-right: 10px; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-transition: all 0.4s ease-in-out; transition: all 0.4s ease-in-out; }
+.delete__in { position: relative; background-image: url(../img/trash.png); background-repeat: no-repeat; background-size: 24px; background-position: center; display: block; width: 24px; height: 24px; cursor: pointer; margin-right: 10px; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-transition: all 0.4s ease-in-out; transition: all 0.4s ease-in-out; }
 .delete__in:hover { -webkit-transform: rotate(10deg); transform: rotate(10deg); }
+.delete__in::after { content: attr(data-title); position: absolute; z-index: 10; left: -20px; bottom: 60%; background-color: #96b8fc; color: #16191D; text-align: center; -webkit-transform: translateX(-50%); transform: translateX(-50%); font-family: "Noto Sans", sans-serif; font-size: 14px; padding: 3px 2px; opacity: 0; -webkit-transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out; }
+.delete__in:hover::after { opacity: 1; }
 
 /*# sourceMappingURL=main.css.map */

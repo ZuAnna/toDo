@@ -72,7 +72,7 @@
           <div class="container">
             <div class="header__top">
               <h1 class="header-one">To do list</h1>
-              <div class="button-create" tabindex="1" title="добавить задачу">
+              <div class="button-create" tabindex="1" data-title="добавить задачу">
                 +
               </div>
             </div>
@@ -141,6 +141,7 @@
                       <div class="delete">
                         <span
                           class="delete__in"
+                          data-title="удалить"
                           v-on:click="needDoList.splice(index, 1)"
                         ></span>
                       </div>
